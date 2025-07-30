@@ -7,7 +7,7 @@ function App() {
   // const [count, setCount] = useState(0)
 
   return (
-    <div className='w-screen h-screen bg-[#1f1e24] text-amber-50 flex'>
+    <div className='w-screen h-screen bg-[#1f1e24] text-amber-50 flex overflow-hidden'>
 
       <Routes>
         <Route path='/' element={<Home />}/>

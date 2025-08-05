@@ -1,5 +1,6 @@
 # API Keys and sensitive configuration
 src/utils/Axios.jsx
+.env
 
 # Logs
 logs

@@ -2,6 +2,8 @@ import { useState } from 'react'
 import './App.css'
 import { Route, Routes } from 'react-router-dom'
 import Home from './component/home'
+import Loading from './component/Loading'
+import Trending from './component/Trending'
 
 function App() {
   // const [count, setCount] = useState(0)
@@ -11,6 +13,8 @@ function App() {
 
       <Routes>
         <Route path='/' element={<Home />}/>
+        <Route path='/l' element={<Loading/>}/>
+        <Route path='/trending' element={<Trending/>}/>
       </Routes>
     
     </div>

@@ -107,12 +107,13 @@ import Cards from './partials/Cards'
 import InfiniteScroll from 'react-infinite-scroll-component';
 
 const Trending = () => {
+   document.title=" Trending"
   const navigate = useNavigate();
   const [category, setCategory] = useState('all')
   const [duration, setDuration] = useState("day")
   const [trending, setTrending] = useState([])
   const [page, setPage] = useState(1)
-  const [hasMore, setHasMore] = useState(true) // Add hasMore state
+  const [hasMore, setHasMore] = useState(true) 
 
   const getTrending = async () => {
     try {
@@ -121,35 +122,33 @@ const Trending = () => {
 
       if (data.results && data.results.length > 0) {
         if (page === 1) {
-          // Reset trending data when category/duration changes
           setTrending(data.results)
         } else {
-          // Append new data for infinite scroll
           setTrending((prevState) => [...prevState, ...data.results])
         }
-        setPage(prevPage => prevPage + 1) // Fix: Use functional update
+
+        setPage(prevPage => prevPage + 1) 
         
-        // Check if we've reached the last page
         if (page >= data.total_pages) {
           setHasMore(false)
         }
-      } else {
+      }
+       else {
         setHasMore(false)
       }
       
-    } catch (error) {
+    }
+     catch (error) {
       console.log("Error: ", error);       
     }
   };
 
-  // Reset state when category or duration changes
   useEffect(() => {
     setTrending([])
     setPage(1)
     setHasMore(true)
   }, [category, duration]);
 
-  // Fetch data when page, category, or duration changes
   useEffect(() => {
     getTrending()
   }, [page, category, duration]);
@@ -188,7 +187,7 @@ const Trending = () => {
         <InfiniteScroll
           dataLength={trending.length}
           next={getTrending}
-          hasMore={hasMore} // Fixed: Use state variable instead of hardcoded true
+          hasMore={hasMore}
           loader={<h4 className='text-center text-zinc-400 p-4'>Loading...</h4>}
           endMessage={
             <p className='text-center text-zinc-400 p-4'>

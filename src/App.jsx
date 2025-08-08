@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './App.css'
 import { Route, Routes } from 'react-router-dom'
-import Home from './component/home'
+import Home from './component/Home'
 import Loading from './component/Loading'
 import Trending from './component/Trending'
 import Popular from './component/Popular'
